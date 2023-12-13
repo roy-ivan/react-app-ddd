@@ -1,0 +1,21 @@
+.wrapper {
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  max-height: 500px;
+  overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+
+  text-wrap: nowrap;
+}
+
+.row {
+  border-bottom: 1px solid #ddd;
+}
+
+.cell {
+  padding: 16px;
+}
