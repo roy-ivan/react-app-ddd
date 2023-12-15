@@ -1,5 +1,5 @@
 import { ItemInterface } from "../../../../domain/item/item.interface";
-import { useGetItemsQuery } from "../../../../infrastructure/item/item.api";
+import { useGetItemsQuery } from "../../../../infrastructure/item.api";
 import styles from "./table.module.scss";
 
 const ItemTable = () => {

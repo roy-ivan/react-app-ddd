@@ -1,23 +1,33 @@
-import { useRegisterItemMutation } from "../../../../infrastructure/item/register.api";
 import { useForm } from "react-hook-form";
 import { type } from "../../../../domain/type.enum";
-import React from "react";
+import React, { useState } from "react";
 import { ItemRegisterInterface } from "../../../../domain/item/item-register.interface";
+import { useRegisterItemMutation } from "../../../../infrastructure/item.api";
+import CheckBox from "../../../shared/components/checkbox/CheckBox";
+import styles from "./register.module.scss";
 
 const RegisterForm = () => {
   const { register, handleSubmit, reset } = useForm<ItemRegisterInterface>();
 
   const [registerItem, { isLoading, isError, isSuccess }] = useRegisterItemMutation();
+  const [check, setCheck] = useState(false);
 
   const onSubmit = (data: ItemRegisterInterface) => {
     registerItem(data);
     reset();
+    if (check) {
+      console.log(check);
+    }
   };
 
   const [selected, setSelected] = React.useState<type>(type.IMPORT);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelected(event.target.value as type);
+  };
+
+  const handleCheck = (value: boolean) => {
+    setCheck(value);
   };
 
   return (
@@ -51,7 +61,8 @@ const RegisterForm = () => {
         </select>
       </div>
       <br />
-      <div>
+      <div className={styles.send}>
+        <CheckBox label="Create another" onCheck={handleCheck} />
         <button type="submit" disabled={isLoading}>
           {isLoading ? "Creating..." : "Create"}
         </button>

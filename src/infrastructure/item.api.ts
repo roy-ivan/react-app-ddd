@@ -1,9 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const registerApi = createApi({
-  reducerPath: "registerApi",
+export const itemApi = createApi({
+  reducerPath: "itemApi",
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
   endpoints: (builder) => ({
+    getItems: builder.query({
+      query: () => "items",
+    }),
     registerItem: builder.mutation({
       query: (item) => ({
         url: "/item/register",
@@ -23,4 +26,4 @@ export const registerApi = createApi({
   }),
 });
 
-export const { useRegisterItemMutation } = registerApi;
+export const { useGetItemsQuery, useRegisterItemMutation } = itemApi;

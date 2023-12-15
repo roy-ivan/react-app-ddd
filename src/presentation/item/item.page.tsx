@@ -9,8 +9,9 @@ import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import styles from "./item.page.module.scss";
 import { useState } from "react";
-import Modal from "../modal/modal";
+
 import RegisterForm from "./components/register/register-form";
+import Modal from "../shared/components/modal/modal";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

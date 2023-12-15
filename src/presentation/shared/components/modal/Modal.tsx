@@ -1,15 +1,7 @@
 // Modal.tsx
-import { ReactNode } from "react";
-import styles from "./moda.module.scss";
+import { ModalProps } from "../../interfaces/moda-props";
+import styles from "./modal.module.scss";
 import ReactPortal from "./react.portal";
-
-// Define Modal props.
-type ModalProps = {
-  title: string;
-  children: ReactNode;
-  isOpened: boolean;
-  closeModal: () => void;
-};
 
 const Modal = ({ title, children, isOpened, closeModal }: ModalProps) => {
   return (
